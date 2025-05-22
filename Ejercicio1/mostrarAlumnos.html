@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de alumnos registrados</title>
+    </head>
+    <body>
+        <h1 >Alumnos que han sido registrados</h1>
+        <table id="miTabla">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Calificación</th>
+                </tr>
+            </thead>
+        </table>
+        <script>
+            function crearTabla (json, elemntos){
+                let tablaHTML = "<tbody>";
+                for (let objeto of json) {
+                    tablaHTML += "<tr>";
+                    for(let key in objeto) {
+                        tablaHTML+= `<td>${objeto[key]}</td>`;
+                    }
+                    tablaHTML += "</tr>";
+                }
+                tablaHTML+= "</tbody>";
+                elementos.innerHTML = tablaHTML;
+            }
+            const miTabla = document.getElementById("miTabla");
+            crearTabla(alumnos.json, miTabla);
+        </script>
+    </body>
+</html>
