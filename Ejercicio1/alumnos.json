@@ -3,5 +3,10 @@
         "nombre": "Vidal",
         "edad": 0,
         "grade": 0
+    },
+    {
+        "nombre": "Karen",
+        "edad": 20,
+        "grade": 10
     }
 ]

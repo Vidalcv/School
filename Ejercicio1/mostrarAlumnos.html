@@ -1,34 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Lista de alumnos registrados</title>
-    </head>
-    <body>
-        <h1 >Alumnos que han sido registrados</h1>
-        <table id="miTabla">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Calificación</th>
-                </tr>
-            </thead>
-        </table>
-        <script>
-            function crearTabla (json, elemntos){
-                let tablaHTML = "<tbody>";
-                for (let objeto of json) {
-                    tablaHTML += "<tr>";
-                    for(let key in objeto) {
-                        tablaHTML+= `<td>${objeto[key]}</td>`;
-                    }
-                    tablaHTML += "</tr>";
-                }
-                tablaHTML+= "</tbody>";
-                elementos.innerHTML = tablaHTML;
+<head>
+    <title>Lista de alumnos registrados</title>
+</head>
+<body>
+    <h1>Alumnos que han sido registrados</h1>
+    <table id="miTabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Calificación</th>
+                <th>Estatus</th> 
+            </tr>
+        </thead>
+    </table>
+
+    <script>
+        function crearTabla(json, elemento) {
+            let tablaHTML = "<tbody>";
+            for (let alumno of json) {
+                tablaHTML += "<tr>";
+                tablaHTML += `<td>${alumno.nombre}</td>`;
+                tablaHTML += `<td>${alumno.edad}</td>`;
+                tablaHTML += `<td>${alumno.grade}</td>`;
+
+                // Determinar estatus
+                let estatus = alumno.grade >= 7 ? "Aprobado" : "No aprobado";
+                tablaHTML += `<td>${estatus}</td>`;
+
+                tablaHTML += "</tr>";
             }
-            const miTabla = document.getElementById("miTabla");
-            crearTabla(alumnos.json, miTabla);
-        </script>
-    </body>
+            tablaHTML += "</tbody>";
+            elemento.innerHTML += tablaHTML;
+        }
+
+        const miTabla = document.getElementById("miTabla");
+
+        // Cargar JSON externo
+        fetch("alumnos.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("No se pudo cargar el archivo JSON");
+                }
+                return response.json();
+            })
+            .then(data => {
+                crearTabla(data, miTabla);
+            })
+            .catch(error => {
+                console.error("Error al cargar los datos:", error);
+            });
+    </script>
+    <button onclick="location.href = 'index.html';" id="backIndex">Regresar al home</button>
+</body>
 </html>
