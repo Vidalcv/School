@@ -8,5 +8,10 @@
         "nombre": "Karen",
         "edad": 20,
         "grade": 10
+    },
+    {
+        "nombre": "karen",
+        "edad": 20,
+        "grade": 10
     }
 ]

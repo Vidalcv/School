@@ -3,5 +3,10 @@
         "nombre": "celular",
         "precio": 7000,
         "stock": 6
+    },
+    {
+        "nombre": "Arroz",
+        "precio": 25,
+        "stock": 6
     }
 ]

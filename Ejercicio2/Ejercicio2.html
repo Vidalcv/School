@@ -7,9 +7,10 @@
         <h2>Registrar un nuevo producto</h2>
         <form action="Guardar_producto.php" method="post">
             Nombre: <input type="text" name="nombre"><br><br>
-            Precio: <input type="number" name="precio" step="0.01"><br><br>
+            Precio: $<input type="number" name="precio" step="1"><br><br>
             Stock: <input type="number" name="stock"><br><br>
             <input type="submit" value="Guardar">
         </form>
+        <button onclick="location.href = 'MostrarProd.html';" id="myButton">Lista de Productos</button>
     </body>
 </html>
