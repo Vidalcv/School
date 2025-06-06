@@ -11,7 +11,7 @@ class Coche{
     }
 
     public function detalles() {
-        return "Marca:$this->marca\tModelo:$this->modelo Año:$this->año";
+        return "Marca:$this->marca&nbsp;&nbsp;&nbsp;&nbsp; Modelo:$this->modelo&nbsp;&nbsp;&nbsp;&nbsp; Año:$this->año<br>";
     }
 }
 
@@ -30,7 +30,7 @@ class Persona{
 }
 
 $miCoche = new Coche("Ford","F-150",1980);
-echo $miCoche->detalles();
+echo $miCoche->detalles() ;
 
 $unaPersona = new Persona("Vidal",21);
 echo $unaPersona->saludar();
